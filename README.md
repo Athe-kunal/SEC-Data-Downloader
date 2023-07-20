@@ -83,3 +83,7 @@ It will download the data in the following directories and sub-directories
 ```
 
 Here for each ticker we have separate folders with 10-K data inside respective years and 10-Q data is saved in the respective year along with the month. `10-Q_03.json` means March data of 10-Q document.
+
+## REFERENCES
+1. Unstructured SEC Filings API: [repo link](https://github.com/Unstructured-IO/pipeline-sec-filings/tree/main)
+2. SEC Edgar Downloader: [repo link](https://github.com/jadchaar/sec-edgar-downloader)
