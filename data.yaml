@@ -1,0 +1,6 @@
+{
+  tickers: ['TSLA','AAPL','GOOGL'],
+  amount: 5,
+  document_type: "10-Q",
+  num_workers: 8
+}
