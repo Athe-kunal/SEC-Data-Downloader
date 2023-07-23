@@ -59,26 +59,26 @@ if __name__ == "__main__":
     with concurrent.futures.ThreadPoolExecutor(max_workers=thread_workers) as executor:
         results = executor.map(multiprocess_run, tickers)
 
-    # final_dict = []
     for res in results:
-        # final_dict.append(res)
         curr_tic = list(res.keys())[0]
         for data in res[curr_tic]:
-            # print(data)
             curr_year = data["year"]
             curr_filing_type = data["filing_type"]
-            if curr_filing_type == "10-K":
+            if curr_filing_type in ["10-K/A","10-Q/A"]:
+                curr_filing_type = curr_filing_type.replace("/","")
+            if curr_filing_type in ["10-K","10-KA"]:
                 os.makedirs(f"data/{curr_tic}/{curr_year}", exist_ok=True)
                 with open(
                     f"data/{curr_tic}/{curr_year}/{curr_filing_type}.json", "w"
                 ) as f:
                     json.dump(data, f, indent=4)
-            elif curr_filing_type == "10-Q":
+            elif curr_filing_type in ["10-Q","10-QA"]:
                 os.makedirs(f"data/{curr_tic}/{curr_year[:-2]}", exist_ok=True)
                 with open(
                     f"data/{curr_tic}/{curr_year[:-2]}/{curr_filing_type}_{curr_year[-2:]}.json",
                     "w",
                 ) as f:
                     json.dump(data, f, indent=4)
+            print(f"Done for {curr_tic} for document {curr_filing_type} and year {curr_year}")
 
     print(f"It took {round(time.time()-start,2)} seconds")

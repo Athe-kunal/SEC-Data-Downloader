@@ -135,7 +135,7 @@ class SECExtractor:
         # fm.append(filing_metadata)
         acc_nums_yrs = [
             [
-                self.get_year(fm.filing_details_url.split("-")[1]),
+                self.get_year(fm.filing_details_url),
                 fm.accession_number.replace("-", ""),
                 fm.full_submission_url
             ]

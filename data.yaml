@@ -3,5 +3,5 @@
   amount: 5,
   filing_type: "10-K",
   num_workers: 6,
-  include_amends: False
+  include_amends: True
 }
