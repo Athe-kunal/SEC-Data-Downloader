@@ -2,6 +2,6 @@
   tickers: ['TSLA','AAPL','GOOGL','MSFT','NVDA','AMZN'],
   amount: 5,
   filing_type: "10-K",
-  num_workers: 6,
+  num_workers: 2,
   include_amends: True
 }
