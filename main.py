@@ -10,17 +10,18 @@ import yaml
 with open("data.yaml", "r") as f:
     data = yaml.safe_load(f)
 
-assert data["document_type"] in [
+assert data["filing_type"] in [
     "10-K",
     "10-Q",
 ], "The supported document types are 10-K and 10-Q"
 
 tickers = data["tickers"]
 amount = data["amount"]
-filing_type = data["document_type"]
+filing_type = data["filing_type"]
 num_workers = data["num_workers"]
+include_amends = data['include_amends']
 
-se = SECExtractor(tickers, amount, filing_type)
+se = SECExtractor(tickers, amount, filing_type,include_amends=include_amends)
 
 os.makedirs("data", exist_ok=True)
 

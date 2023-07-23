@@ -1,6 +1,7 @@
 {
-  tickers: ['TSLA','AAPL','GOOGL'],
+  tickers: ['TSLA','AAPL','GOOGL','MSFT','NVDA','AMZN'],
   amount: 5,
-  document_type: "10-Q",
-  num_workers: 8
+  filing_type: "10-K",
+  num_workers: 6,
+  include_amends: False
 }
